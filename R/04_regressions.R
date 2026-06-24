@@ -35,7 +35,21 @@ d10 <- world %>% filter(!is.na(co2), !is.na(gdp))
 m10 <- lm(anomaly ~ gdp + co2, data = d10)
 print(summary(m10))
 cat("\nMulticollinearity note: GDP and CO2 are strongly correlated:\n")
-cat("  Pearson r(GDP, CO2) =", round(cor(d10$gdp, d10$co2), 3), "\n\n\n")
+cat("  Pearson r(GDP, CO2) =", round(cor(d10$gdp, d10$co2), 3), "\n\n")
+
+# AIC-based variable selection (paper's discussion/conclusion). Neither GDP nor
+# CO2 is individually significant in the joint model, so a naive reading would
+# drop one. Backward elimination by AIC instead keeps BOTH terms, because
+# removing either RAISES the AIC -- evidence that the two carry shared
+# (collinear) but jointly useful information.
+cat("AIC backward elimination on the GDP + CO2 model\n")
+cat("  full-model AIC =", round(AIC(m10), 2), "\n")
+cat("  effect of dropping each term (lower AIC = better fit):\n")
+print(drop1(m10))
+m10_sel <- step(m10, direction = "backward", trace = 0)
+cat("  model selected by AIC:  anomaly ~ ",
+    paste(setdiff(names(coef(m10_sel)), "(Intercept)"), collapse = " + "),
+    "\n  --> AIC retains both predictors; no variable is dropped.\n\n\n")
 
 cat("## Fig 11 -- global CO2 per capita ~ global GDP per capita (1990-2018)\n")
 d11 <- world %>% filter(year >= 1990, year <= 2018,

@@ -70,6 +70,20 @@ F-statistic: 304.3 on 2 and 62 DF,  p-value: < 2.2e-16
 Multicollinearity note: GDP and CO2 are strongly correlated:
   Pearson r(GDP, CO2) = 0.961 
 
+AIC backward elimination on the GDP + CO2 model
+  full-model AIC = -96.51 
+  effect of dropping each term (lower AIC = better fit):
+Single term deletions
+
+Model:
+anomaly ~ gdp + co2
+       Df Sum of Sq     RSS     AIC
+<none>              0.76241 -282.97
+gdp     1   0.13832 0.90073 -274.13
+co2     1   0.15396 0.91637 -273.01
+  model selected by AIC:  anomaly ~  gdp + co2 
+  --> AIC retains both predictors; no variable is dropped.
+
 
 ## Fig 11 -- global CO2 per capita ~ global GDP per capita (1990-2018)
 

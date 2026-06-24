@@ -88,6 +88,13 @@ positively and significantly associated with both GDP per capita and CO₂
 emissions. GDP and CO₂ are strongly collinear, so they are not jointly
 significant in the multiple model even though each is highly significant alone.
 
+**AIC variable selection (paper's discussion).** Because neither term is
+individually significant in the joint `Temp ~ GDP + CO₂` model, `04_regressions.R`
+runs backward elimination by AIC (`step()`). Dropping either predictor *raises*
+the AIC, so AIC keeps **both** variables — reproducing the paper's conclusion
+that the relationship is retained on the strength of the AIC test rather than the
+(collinearity-deflated) p-values. Only AIC is used; the paper does not use BIC.
+
 ## Citation
 
 > Fan, Y., Xia, W., & Zhang, L. (2023). The Change of Global Temperature
