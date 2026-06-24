@@ -2,9 +2,14 @@
 
 Reproducible analysis code for the paper:
 
-> Yuqing Fan, Wu Xia, Linxi Zhang. *The Change of Global Temperature Affected by
-> Global Economy.* Highlights in Science, Engineering and Technology, Vol. 48
+> Yuqing Fan, Wu Xia, Linxi Zhang. **The Change of Global Temperature Affected by
+> Global Economy.** *Highlights in Science, Engineering and Technology*, Vol. 48
 > (2023), pp. 17–36 (ESETEP 2023).
+> DOI: [10.54097/hset.v48i.8228](https://doi.org/10.54097/hset.v48i.8228) ·
+> [Article page](https://drpress.org/ojs/index.php/HSET/article/view/8228)
+
+The article is published open access under CC BY-NC 4.0. The code in this
+repository is released separately under the MIT License.
 
 The study examines the statistical relationship between the global economy
 (GDP, GDP per capita) and the climate (global temperature anomaly, CO₂
@@ -82,6 +87,25 @@ vintage).
 positively and significantly associated with both GDP per capita and CO₂
 emissions. GDP and CO₂ are strongly collinear, so they are not jointly
 significant in the multiple model even though each is highly significant alone.
+
+## Citation
+
+> Fan, Y., Xia, W., & Zhang, L. (2023). The Change of Global Temperature
+> Affected by Global Economy. *Highlights in Science, Engineering and
+> Technology*, 48, 17–36. https://doi.org/10.54097/hset.v48i.8228
+
+```bibtex
+@article{fan2023temperature,
+  title   = {The Change of Global Temperature Affected by Global Economy},
+  author  = {Fan, Yuqing and Xia, Wu and Zhang, Linxi},
+  journal = {Highlights in Science, Engineering and Technology},
+  volume  = {48},
+  pages   = {17--36},
+  year    = {2023},
+  doi     = {10.54097/hset.v48i.8228},
+  url     = {https://drpress.org/ojs/index.php/HSET/article/view/8228}
+}
+```
 
 ## Notes
 
