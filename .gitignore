@@ -9,3 +9,6 @@ data/
 .Rhistory
 .RData
 .Rproj.user/
+
+# macOS
+.DS_Store
