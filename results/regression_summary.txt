@@ -1,0 +1,115 @@
+Regression models reproducing the paper (global series)
+=======================================================
+
+## Fig 8 -- Temperature ~ global GDP per capita (1980-2019)
+
+Call:
+lm(formula = anomaly ~ gdp_per_capita, data = d8)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.189143 -0.082704 -0.000238  0.088319  0.231015 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    -5.472e-02  4.212e-02  -1.299    0.202    
+gdp_per_capita  7.193e-05  5.955e-06  12.079  1.4e-14 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.1106 on 38 degrees of freedom
+Multiple R-squared:  0.7934,	Adjusted R-squared:  0.7879 
+F-statistic: 145.9 on 1 and 38 DF,  p-value: 1.396e-14
+
+
+
+## Fig 9 -- Temperature ~ global CO2 emissions
+
+Call:
+lm(formula = anomaly ~ co2, data = d9)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.33767 -0.10068 -0.00334  0.08576  0.39570 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -4.190e-01  1.707e-02  -24.54   <2e-16 ***
+co2          3.118e-05  9.908e-07   31.47   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.1399 on 143 degrees of freedom
+Multiple R-squared:  0.8739,	Adjusted R-squared:  0.873 
+F-statistic: 990.6 on 1 and 143 DF,  p-value: < 2.2e-16
+
+
+
+## Fig 10 -- Temperature ~ GDP + CO2 (multiple regression)
+
+Call:
+lm(formula = anomaly ~ gdp + co2, data = d10)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.22476 -0.08241 -0.01492  0.08628  0.22424 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -3.740e-01  8.873e-02  -4.215 8.26e-05 ***
+gdp          5.129e-15  1.529e-15   3.354 0.001363 ** 
+co2          2.046e-05  5.781e-06   3.538 0.000769 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.1109 on 62 degrees of freedom
+Multiple R-squared:  0.9075,	Adjusted R-squared:  0.9046 
+F-statistic: 304.3 on 2 and 62 DF,  p-value: < 2.2e-16
+
+
+Multicollinearity note: GDP and CO2 are strongly correlated:
+  Pearson r(GDP, CO2) = 0.961 
+
+
+## Fig 11 -- global CO2 per capita ~ global GDP per capita (1990-2018)
+
+Call:
+lm(formula = co2_per_capita ~ gdp_per_capita, data = d11)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.12545 -0.06713 -0.01952  0.06478  0.21156 
+
+Coefficients:
+                Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    3.551e+00  5.641e-02   62.96  < 2e-16 ***
+gdp_per_capita 1.170e-04  7.201e-06   16.25 1.84e-15 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.09376 on 27 degrees of freedom
+Multiple R-squared:  0.9072,	Adjusted R-squared:  0.9037 
+F-statistic: 263.9 on 1 and 27 DF,  p-value: 1.839e-15
+
+
+
+## Fig 12 -- cross-country log(CO2 per capita) ~ log(GDP per capita), 2015
+
+Call:
+lm(formula = log(co2_per_capita) ~ log(gdp_per_capita), data = cross_2015)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.35936 -0.46280 -0.06772  0.48273  1.95809 
+
+Coefficients:
+                    Estimate Std. Error t value Pr(>|t|)    
+(Intercept)         -7.25772    0.32235  -22.52   <2e-16 ***
+log(gdp_per_capita)  0.92025    0.03651   25.20   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.7398 on 199 degrees of freedom
+Multiple R-squared:  0.7615,	Adjusted R-squared:  0.7603 
+F-statistic: 635.2 on 1 and 199 DF,  p-value: < 2.2e-16
+
